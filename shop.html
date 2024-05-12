@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Избавляемся от скролла на странице */
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #2b1e50, #000528); /* Градиентный фон */
+            filter: blur(5px); /* Добавление размытия */
+            z-index: -1; /* Поместить элемент под основное содержимое */
+        }
+
+        .container {
+            padding: 20px;
+            padding-top: 60px; /* Отступ сверху, чтобы учесть высоту стрелочки */
+            height: calc(100% - 40px); /* Высота экрана минус отступы */
+            overflow-y: auto; /* Добавить вертикальную прокрутку */
+        }
+
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between; /* Распределение элементов по два в ряд */
+            margin-top: 20px; /* Отступ сверху от карточек */
+        }
+
+        .card {
+            width: calc(50% - 20px - 5px); /* 50% ширины контейнера минус отступ между карточками */
+            margin-bottom: 10px; /* Отступ снизу для карточек */
+            background-color: rgba(255, 255, 255, 0.56); /* Полупрозрачный темно-фиолетовый цвет */
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(125, 155, 242, 1);
+        }
+
+        .card-panel {
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .card-img {
+            width: 70%;
+            border-radius: 10px 10px 0 0;
+        }
+
+        .card-price {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .back-link {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 10; /* Поместить над другими элементами */
+        }
+
+        .back-link img {
+            width: 30px;
+            height: 30px;
+            cursor: pointer; /* Изменить курсор на указатель */
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <a href="index.html" class="back-link">
+        <img src="image/786399.png" alt="Back to Home">
+    </a>
+    <div class="container">
+        <div class="cards">
+            <!-- Первый товар -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 1</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="image/shop.png" alt="Product 1">
+                <div class="card-price">$20.00</div>
+            </div>
+
+            <!-- Второй товар -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 2</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product2.jpg" alt="Product 2">
+                <div class="card-price">$30.00</div>
+            </div>
+
+            <!-- Добавленные товары -->
+            <!-- Товар 3 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 3</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="image/shop.png" alt="Product 3">
+                <div class="card-price">$25.00</div>
+            </div>
+
+            <!-- Товар 4 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 4</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product4.jpg" alt="Product 4">
+                <div class="card-price">$35.00</div>
+            </div>
+
+            <!-- Товар 5 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 5</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product5.jpg" alt="Product 5">
+                <div class="card-price">$40.00</div>
+            </div>
+
+            <!-- Товар 6 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 6</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product6.jpg" alt="Product 6">
+                <div class="card-price">$45.00</div>
+            </div>
+
+            <!-- Товар 7 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 7</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product7.jpg" alt="Product 7">
+                <div class="card-price">$50.00</div>
+            </div>
+
+            <!-- Товар 8 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 8</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product8.jpg" alt="Product 8">
+                <div class="card-price">$55.00</div>
+            </div>
+
+            <!-- Товар 9 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 9</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product9.jpg" alt="Product 9">
+                <div class="card-price">$60.00</div>
+            </div>
+
+            <!-- Товар 10 -->
+            <div class="card">
+                <div class="card-panel">
+                    <h2>Product 10</h2>
+                    <p>Earnings hour:20$</p>
+                </div>
+                <img class="card-img" src="product10.jpg" alt="Product 10">
+                <div class="card-price">$65.00</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

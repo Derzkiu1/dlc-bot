@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, #2b1e50, #000428); /* Градиентный фон */
+            filter: blur(5px); /* Добавление размытия */
+            z-index: -1; /* Поместить элемент под основное содержимое */
+        }
+
+        .container {
+            padding: 20px;
+            height: calc(100% - 40px); /* Высота экрана минус отступы */
+            overflow-y: auto; /* Добавить вертикальную прокрутку */
+            color: white;
+            position: relative; /* Добавлено */
+        }
+
+        .profile-panel {
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный фон */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 40px 5px 40px; /* Отступ со всех сторон для панели профиля */
+        }
+
+        .profile-panel h1 {
+            margin-top: 0;
+        }
+
+        .profile-info {
+            margin-bottom: 10px;
+        }
+
+        .profile-info span {
+            font-weight: bold;
+        }
+
+        .profile-business {
+            margin-top: 20px;
+        }
+
+        .business-item {
+            margin-bottom: 10px;
+        }
+
+        .back-link {
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            z-index: 10; /* Поместить над другими элементами */
+        }
+
+        .back-link img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div class="back-link">
+            <a href="index.html">
+                <img src="image/786399.png" alt="Back to Home">
+            </a>
+        </div>
+        <div class="profile-panel">
+            <h1>Player Profile</h1>
+            <div class="profile-info">
+                <span>Name:</span> John Doe
+            </div>
+            <div class="profile-info">
+                <span>Coins:</span> 5000
+            </div>
+            <div class="profile-info">
+                <span>Businesses:</span> 3
+            </div>
+            <div class="profile-info">
+                <span>Earnings:</span> $200/hour
+            </div>
+            <div class="profile-business">
+                <h2>Businesses</h2>
+                <div class="business-item">
+                    <span>Business 1:</span> $50/hour
+                </div>
+                <div class="business-item">
+                    <span>Business 2:</span> $100/hour
+                </div>
+                <div class="business-item">
+                    <span>Business 3:</span> $50/hour
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
