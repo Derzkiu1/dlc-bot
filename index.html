@@ -31,35 +31,36 @@
             align-items: center;
         }
 
-        .panel {
-            position: absolute;
-            bottom: 40px; /* Увеличиваем отступ снизу */
-            left: 30px; /* Увеличиваем отступ слева */
-            width: calc(100% - 70px); /* Уменьшаем ширину панели */
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px; /* Добавляем внутренние отступы внутри панели */
+        @media only screen and (max-width: 768px) {
+            .panel {
+                position: absolute;
+                bottom: 3vh; /* Увеличиваем отступ снизу */
+                left: 1vw; /* Увеличиваем отступ слева */
+                width: 98vw; /* Уменьшаем ширину панели */
+                background-color: rgba(255, 255, 255, 0.15);
+                border-radius: 10px;
+                overflow: hidden;
+                display: flex;
+                justify-content: space-between;
+                padding: 1vh; /* Добавляем внутренние отступы внутри панели */
+            }
+        
+            .tile {
+                padding: 1vh; /* Уменьшаем внутренние отступы кнопок */
+                border-radius: 5px; /* Закругляем кнопки */
+                overflow: hidden;
+                margin: 0 1vw;
+                background-color: rgba(255, 255, 255, 0.25);
+                flex-grow: 0; /* Кнопки будут занимать доступное пространство внутри панели */
+                text-align: center;
+                cursor: pointer;
+            }
+        
+            .tile img {
+                width: 5vw; /* Уменьшаем размер изображений в кнопках */
+                height: auto;
+            }
         }
-
-        .tile {
-            padding: 5px; /* Уменьшаем внутренние отступы кнопок */
-            border-radius: 8px; /* Закругляем кнопки */
-            overflow: hidden;
-            margin: 0 15px;
-            background-color: rgba(255, 255, 255, 0.25);
-            flex-grow: 0; /* Кнопки будут занимать доступное пространство внутри панели */
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .tile img {
-            width: 40px; /* Уменьшаем размер изображений в кнопках */
-            height: 40px;
-        }
-
         .center-content {
             position: absolute;
             top: 50%;
