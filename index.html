@@ -3,183 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dillercoin</title>
+    <title>Districts</title>
     <style>
-        body, html {
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
             margin: 0;
             padding: 0;
-            height: 100%;
         }
-
-        .background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to bottom, #2b1e50, #000528); /* Градиентный фон */
-            filter: blur(5px); /* Добавление размытия */
-            z-index: -1; /* Поместить элемент под основное содержимое */
-        }
-
-        .container {
-            position: relative;
-            height: 100%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .panel {
-            position: absolute;
-            bottom: 70px; /* Увеличиваем отступ снизу */
-            left: 30px; /* Увеличиваем отступ слева */
-            width: calc(100% - 70px); /* Уменьшаем ширину панели */
-            background-color: rgba(255, 255, 255, 0.15);
-            border-radius: 20px;
-            overflow: hidden;
-            display: flex;
-            justify-content: space-between;
-            padding: 10px; /* Добавляем внутренние отступы внутри панели */
-        }
-
-        .tile {
-            padding: 5px; /* Уменьшаем внутренние отступы кнопок */
-            border-radius: 8px; /* Закругляем кнопки */
-            overflow: hidden;
-            margin: 0 20px;
-            background-color: rgba(255, 255, 255, 0.25);
-            flex-grow: 0; /* Кнопки будут занимать доступное пространство внутри панели */
-            text-align: center;
-            cursor: pointer;
-        }
-
-        .tile img {
-            width: 100%; /* Уменьшаем размер изображений в кнопках */
-            height: 60px;
-        }
-
-        .center-content {
-            position: absolute;
-            top: 40%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            text-align: center;
-        }
-
         .balance {
-            margin-top: -70px;
-            font-size: 20px;
-            color: white;
-            background-color: rgba(255, 255, 255, 0.3);
-            border-radius: 15px;
-            padding: 10px;
-        }
-
-        .coin {
-            width: 80%;
-            height: auto;
-            margin-top: 10px;
-            transition: transform 0.2s; /* добавляем анимацию перехода */
-        }
-        .coin.clicked {
-            transform: scale(1.1); /* увеличиваем монету при клике */
-        }
-
-        .coin-click-text {
-            position: absolute;
             font-size: 24px;
-            color: yellow;
-            animation: coin-click-animation 1s ease-out;
-            opacity: 0;
-            pointer-events: none; /* Чтобы текст не мешал кликам */
+            margin: 30px 0;
         }
-
-        @keyframes coin-click-animation {
-            0% { opacity: 1; top: 50%; }
-            100% { opacity: 0; top: 20%; }
+        .control-panel {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: #000000;
+            padding: 10px 0;
+            box-sizing: border-box;
         }
-
-        .energy-bar {
-            width: 350px;
-            height: 20px;
-            background-color: rgba(255, 255, 255, 0.2);
+        .control-panel button {
+            background-color: rgba(68, 68, 68, 0.7); /* Прозрачность кнопок */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
             border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
             overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Внешнее свечение */
+            transition: box-shadow 0.3s, background-color 0.3s; /* Плавный переход */
         }
-
-        .energy-fill {
-            height: 100%;
-            background-color: #4CAF50; /* Зеленый цвет для заполненной части */
-            transition: width 8s ease; /* Плавное изменение ширины с задержкой 6 секунд */
+        .control-panel button:hover {
+            background-color: rgba(68, 68, 68, 0.9); /* Изменение прозрачности при наведении */
+            box-shadow: 0 0 20px rgba(220,20,60, 0.8); /* Усиление свечения при наведении */
+        }
+        .control-panel button img {
+            width: 20px; /* Adjust the width as needed */
+            height: 20px; /* Adjust the height as needed */
+            margin-right: 10px; /* Adjust spacing between image and text */
+            opacity: 0.7; /* Adjust initial opacity */
+        }
+        .control-panel button:hover img {
+            opacity: 1; /* Opacity on hover */
+        }
+        .gif-container {
+            margin: 90px 0;
+        }
+        .gif-container img {
+            max-width: 80%;
         }
     </style>
 </head>
 <body>
-    <div class="background"></div>
-    <div class="container">
-        <div class="panel">
-            <a href="shop.html" class="tile"><img src="image/shop.png" alt="Button 1"></a>
-            <a href="leaderboard.html" class="tile"><img src="image/3150115.png" alt="Button 2"></a>
-            <a href="profile.html" class="tile"><img src="image/1077063.png" alt="Button 3"></a>
-        </div>
-        <div class="center-content">
-            <div class="balance">Balance: 1000</div>
-            <img src="image/Empty-Gold-Coin-PNG-Image.png" alt="Coin" class="coin" id="coin">
-            <div class="coin-click-text" id="coin-click">+1</div> <!-- текст +1 -->
-            <div class="energy-bar">
-                <div class="energy-fill" style="width: 100%;"></div> <!-- Начальная ширина 100% -->
-            </div>
-        </div>
+    <h1>Districts</h1>
+    <div class="balance">Баланс: <span id="balance">0</span></div>
+    <div class="gif-container">
+        <img src="https://i.pinimg.com/originals/ff/1d/88/ff1d8824966668a2eb271133549d5d79.gif" alt="Gif Image">
     </div>
-    <script>
-        const coin = document.getElementById('coin');
-        const balanceDisplay = document.querySelector('.balance');
-        const energyBar = document.querySelector('.energy-fill');
-        const coinClickText = document.getElementById('coin-click');
-
-        let balance = 1000; // начальный баланс
-        let energy = 100; // начальная энергия
-        const maxEnergy = 100; // максимальное значение энергии
-        const clicksToRecharge = 100; // количество кликов для перезарядки
-        const rechargeTime = 6000; // время перезарядки энергии в миллисекундах
-        let clicks = 0; // текущее количество кликов
-
-        coin.addEventListener('click', () => {
-            if (energy > 0 && clicks < clicksToRecharge) { // проверяем, есть ли энергия и не превышено ли количество кликов
-                balance += 1; // увеличиваем баланс на 1
-                energy -= 1; // уменьшаем энергию на 1
-
-                if (energy < 0) {
-                    energy = 0; // гарантируем, что энергия не станет отрицательной
-                }
-
-                updateUI(); // обновляем интерфейс
-                showCoinClickText(); // показываем анимацию +1
-
-                clicks++;
-                if (clicks >= clicksToRecharge) {
-                    setTimeout(() => {
-                        energy = maxEnergy; // восстанавливаем энергию
-                        clicks = 0; // сбрасываем счетчик кликов
-                        updateUI(); // обновляем интерфейс
-                    }, rechargeTime);
-                }
-            }
-        });
-
-        function updateUI() {
-            balanceDisplay.textContent = `Balance: ${balance}`; // обновляем отображение баланса
-            energyBar.style.width = `${(energy / maxEnergy) * 100}%`; // обновляем шкалу энергии
-        }
-
-        function showCoinClickText() {
-            coinClickText.style.opacity = '1'; // делаем текст видимым
-            setTimeout(() => {
-                coinClickText.style.opacity = '0'; // через 1.5 секунды делаем текст невидимым
-            }, 1500);
-        }
-    </script>
+    <div class="control-panel">
+        <button>
+            <img src="URL_вашего_изображения" alt="Shop Icon"> Shop
+        </button>
+        <button>
+            <img src="URL_вашего_изображения" alt="Top Icon"> Top
+        </button>
+        <button>
+            <img src="URL_вашего_изображения" alt="Boost Icon"> Boost
+        </button>
+    </div>
 </body>
 </html>
